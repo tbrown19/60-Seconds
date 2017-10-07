@@ -3,6 +3,12 @@
         <h2>Time since entering site</h2>
         <span id="site-timer">{{ formatedSeonds }}</span>
         <br>
+        <md-button class="md-raised md-primary">Button</md-button>
+        <div style="text-align:left;">
+            <span v-for="death in deathsCount" :key="death">
+                {{ death }}
+            </span>
+        </div>
     </div>
 </template>
 
@@ -12,16 +18,23 @@ export default {
     computed: {
         formatedSeonds() {
             return moment.utc(this.now * 1000).format('HH:mm:ss');
+        },
+        deathsCount() {
+            return Math.floor(this.deaths);
         }
     },
     created() {
         window.setInterval(() => {
             this.now += 1;
-        }, 10);
+        }, 1000);
+        window.setInterval(() => {
+            this.deaths += 1.783;
+        }, 1000);
     },
     data() {
         return {
-            now: 0
+            now: 0,
+            deaths: 0
         };
     }
 };
@@ -34,7 +47,7 @@ h2 {
     font-weight: normal;
 }
 
-#site-timer{
+#site-timer {
     font-size: 4rem;
 }
 </style>

@@ -3,9 +3,11 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import 'vue-material/dist/vue-material.css';
 
 Vue.config.productionTip = false;
 Vue.use(require('vue-moment'));
+Vue.use(require('Vue-Material'));
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
