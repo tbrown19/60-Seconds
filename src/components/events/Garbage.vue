@@ -2,10 +2,10 @@
     <md-layout md-column md-flex>
         <md-layout md-column md-align="center">
             <span class="md-title">
-                {{tonsTrashCount}} tons of garbage has been generated.
+                {{tonsTrashCount}} tons of garbage has been dumped.
             </span>
             <span class="md-subheading">
-                Each trashcan represents 100 tons.
+                Each trashcan represents {{ valuePerIcon }} tons.
             </span>
             <a target="_blank" href="https://www.epa.gov/recycle/reducing-waste-what-you-can-do/">
                 Learn to reduce waste.</a>
@@ -45,7 +45,7 @@ export default {
     data() {
         return {
             tonsTrash: 0,
-            valuePerIcon: 100
+            valuePerIcon: 10
         };
     }
 };

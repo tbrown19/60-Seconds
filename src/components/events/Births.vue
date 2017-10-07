@@ -5,7 +5,7 @@
                 {{birthsCount}} children have been born.
             </span>
             <span class="md-title md-warn">
-                <span class="orange"> {{povertyBirthsCount}} </span> are born into poverty.
+                <span class="orange"> {{povertyBirthsCount}} </span> were born into poverty.
             </span>
             <span class="md-subheading">
                 Blue represents a child born into poverty.

@@ -16,10 +16,13 @@
 
         <hr id="seperator">
 
-        <garbage-view></garbage-view>
-        <!-- <deaths-view></deaths-view> -->
+        <deaths-view></deaths-view>
         <hr class="statistic-seperator">
-        <!-- <births-view></births-view> -->
+        <births-view></births-view>
+        <hr class="statistic-seperator">
+        <garbage-view></garbage-view>
+        <hr class="statistic-seperator">
+        <water-bottle-use-view></water-bottle-use-view>
 
         <!-- <md-layout md-column md-flex>
                 <md-layout md-align="center">
@@ -41,11 +44,12 @@
 import DeathsView from './events/Deaths.vue';
 import BirthsView from './events/Births.vue';
 import GarbageView from './events/Garbage.vue';
+import WaterBottleUseView from './events/WaterBottleUse.vue';
 
 const moment = require('moment');
 export default {
     components: {
-        DeathsView, BirthsView, GarbageView
+        DeathsView, BirthsView, GarbageView, WaterBottleUseView
     },
     computed: {
         formatedSeonds() {
