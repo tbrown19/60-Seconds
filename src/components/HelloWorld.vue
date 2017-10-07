@@ -4,42 +4,48 @@
 
         <md-layout md-column>
             <md-layout md-align="center">
-                <span class="md-display-2">Time since entering site</span>
+                <span class="md-display-1">Time since entering site:</span>
             </md-layout>
             <md-layout md-align="center">
-                <span class="md-display-4">{{ formatedSeonds }}</span>
+                <span class="md-display-3">{{ formatedSeonds }}</span>
             </md-layout>
             <md-layout md-align="center">
-                <span class="md-display-2">While you've been here:</span>
+                <span class="md-display-1">While you've been here</span>
             </md-layout>
         </md-layout>
 
         <hr id="seperator">
-        
-        <deaths-view></deaths-view>
+
+        <garbage-view></garbage-view>
+        <!-- <deaths-view></deaths-view> -->
+        <hr class="statistic-seperator">
+        <!-- <births-view></births-view> -->
 
         <!-- <md-layout md-column md-flex>
-            <md-layout md-align="center">
-                <span class="md-title">
-                    {{birthsCount}} births have occured.
-                </span>
-            </md-layout>
-            <md-layout md-align="start">
-                <span v-for="birth in birthsCount" :key="birth">
-                    <md-icon md-iconset="fa fa-user-o" class="green"></md-icon>
-                </span>
-            </md-layout>
-        </md-layout> -->
+                <md-layout md-align="center">
+                    <span class="md-title">
+                        {{birthsCount}} births have occured.
+                    </span>
+                </md-layout>
+                <md-layout md-align="start">
+                    <span v-for="birth in birthsCount" :key="birth">
+                        <md-icon md-iconset="fa fa-user-o" class="green"></md-icon>
+                    </span>
+                </md-layout>
+            </md-layout> -->
 
     </div>
 </template>
 
 <script>
 import DeathsView from './events/Deaths.vue';
+import BirthsView from './events/Births.vue';
+import GarbageView from './events/Garbage.vue';
+
 const moment = require('moment');
 export default {
     components: {
-        DeathsView
+        DeathsView, BirthsView, GarbageView
     },
     computed: {
         formatedSeonds() {
@@ -67,7 +73,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 h1,
 h2 {
     font-weight: normal;
@@ -76,10 +82,30 @@ h2 {
 #site-timer {
     font-size: 4rem;
 }
-#seperator{
+
+#seperator {
     margin: 1rem;
 }
-.green{
+
+.green {
     color: green;
+}
+
+.statistic-seperator {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.md-title {
+    font-size: 1.4rem;
+}
+.md-subheading {
+    font-size: 1.2rem;
+}
+a {
+    font-size: 1.2rem;
 }
 </style>
