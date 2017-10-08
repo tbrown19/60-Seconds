@@ -23,19 +23,24 @@
         <garbage-view></garbage-view>
         <hr class="statistic-seperator">
         <water-bottle-use-view></water-bottle-use-view>
-
+        <hr class="statistic-seperator">
+        <tree-view></tree-view>
+        <hr class="statistic-seperator">
+        <oil-view></oil-view>
+        <hr class="statistic-seperator">
+        <charity-view></charity-view>
         <!-- <md-layout md-column md-flex>
-                <md-layout md-align="center">
-                    <span class="md-title">
-                        {{birthsCount}} births have occured.
-                    </span>
-                </md-layout>
-                <md-layout md-align="start">
-                    <span v-for="birth in birthsCount" :key="birth">
-                        <md-icon md-iconset="fa fa-user-o" class="green"></md-icon>
-                    </span>
-                </md-layout>
-            </md-layout> -->
+                    <md-layout md-align="center">
+                        <span class="md-title">
+                            {{birthsCount}} births have occured.
+                        </span>
+                    </md-layout>
+                    <md-layout md-align="start">
+                        <span v-for="birth in birthsCount" :key="birth">
+                            <md-icon md-iconset="fa fa-user-o" class="green"></md-icon>
+                        </span>
+                    </md-layout>
+                </md-layout> -->
 
     </div>
 </template>
@@ -45,11 +50,13 @@ import DeathsView from './events/Deaths.vue';
 import BirthsView from './events/Births.vue';
 import GarbageView from './events/Garbage.vue';
 import WaterBottleUseView from './events/WaterBottleUse.vue';
-
+import TreeView from './events/Trees.vue';
+import OilView from './events/Oil.vue';
+import CharityView from './events/Charity.vue';
 const moment = require('moment');
 export default {
     components: {
-        DeathsView, BirthsView, GarbageView, WaterBottleUseView
+        DeathsView, BirthsView, GarbageView, WaterBottleUseView, TreeView, OilView, CharityView
     },
     computed: {
         formatedSeonds() {
@@ -106,9 +113,11 @@ h2 {
 .md-title {
     font-size: 1.4rem;
 }
+
 .md-subheading {
     font-size: 1.2rem;
 }
+
 a {
     font-size: 1.2rem;
 }

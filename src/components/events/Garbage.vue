@@ -2,7 +2,7 @@
     <md-layout md-column md-flex>
         <md-layout md-column md-align="center">
             <span class="md-title">
-                {{tonsTrashCount}} tons of garbage has been dumped.
+                {{tonsTrashCount}} tons of garbage have been dumped.
             </span>
             <span class="md-subheading">
                 Each trashcan represents {{ valuePerIcon }} tons.
@@ -18,10 +18,10 @@
                 <md-icon md-iconset="fa"></md-icon>
             </span>
             <span v-for="ton in tonsTrashIconsCount" :key="ton">
-                <md-icon md-iconset="fa fa-trash"></md-icon>
+                <md-icon v-if="ton < 1000" md-iconset="fa fa-trash"></md-icon>
             </span>
-            <span v-if="tonsTrashIconsCount > 1000" class="md-title">
-                + {{ tonsTrashIconsCount - 1000 }} more
+            <span v-if="tonsTrashIconsCount >= 1000" class="md-title">
+                + {{ Math.floor((tonsTrashCount - 1000) / this.valuePerIcon) }} more
             </span>
         </md-layout>
     </md-layout>
@@ -34,6 +34,9 @@ export default {
             return Math.floor(this.tonsTrash);
         },
         tonsTrashIconsCount() {
+            if (this.tonsTrash / this.valuePerIcon > 1000) {
+                return 1000;
+            }
             return Math.floor(this.tonsTrash / this.valuePerIcon);
         }
     },

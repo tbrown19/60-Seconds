@@ -18,10 +18,10 @@
                 <md-icon md-iconset="fa"></md-icon>
             </span>
             <span v-for="waterBottle in waterBottleIconsCount" :key="waterBottle">
-                <md-icon>local_drink</md-icon>
+                <md-icon class="md-primary" v-if="waterBottle < 1000">local_drink</md-icon>
             </span>
-            <span v-if="waterBottleIconsCount > 1000" class="md-title">
-                + {{ waterBottleIconsCount - 1000 }} more
+            <span v-if="waterBottleIconsCount >= 1000" class="md-title">
+                + {{ Math.floor((waterBottleCount - 1000) / this.valuePerIcon) }} more
             </span>
         </md-layout>
     </md-layout>
@@ -34,6 +34,9 @@ export default {
             return Math.floor(this.waterBottle);
         },
         waterBottleIconsCount() {
+            if (this.waterBottle / this.valuePerIcon > 1000) {
+                return 1000;
+            }
             return Math.floor(this.waterBottle / this.valuePerIcon);
         }
     },
@@ -45,7 +48,7 @@ export default {
     data() {
         return {
             waterBottle: 0,
-            valuePerIcon: 250
+            valuePerIcon: 500
         };
     }
 };
