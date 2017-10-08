@@ -29,7 +29,7 @@
 
 <script>
 export default {
-    props: ['deaths', 'starvationDeaths'],
+    props: ['milliSecondsPassed'],
     computed: {
         deathsCount() {
             return Math.floor(this.deaths);
@@ -50,16 +50,16 @@ export default {
             }
         }
     },
-    // created() {
-    //     window.setInterval(() => {
-    //         this.deaths += 1.783 / 10;
-    //         this.starvationDeaths += 0.3 / 10;
-    //     }, 100);
-    // },
+    created() {
+        window.setInterval(() => {
+            this.deaths = 0.1783 * this.milliSecondsPassed;
+            this.starvationDeaths = 0.03 * this.milliSecondsPassed;
+        }, 100);
+    },
     data() {
         return {
-            // deaths: 0,
-            // starvationDeaths: 0,
+            deaths: 0,
+            starvationDeaths: 0,
             deathsArray: []
         };
     }

@@ -29,6 +29,7 @@
 
 <script>
 export default {
+    props: ['milliSecondsPassed'],
     computed: {
         birthsCount() {
             return Math.floor(this.births);
@@ -51,9 +52,9 @@ export default {
     },
     created() {
         window.setInterval(() => {
-            this.births += 4.16 / 1;
-            this.povertyBirths += 1.88 / 1;
-        }, 1000);
+            this.births = 0.416 * this.milliSecondsPassed;
+            this.povertyBirths = 0.188 * this.milliSecondsPassed;
+        }, 100);
     },
     data() {
         return {

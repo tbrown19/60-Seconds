@@ -16,9 +16,9 @@
 
         <hr id="seperator">
 
-        <deaths-view :deaths="deaths" :starvationDeaths="starvationDeaths"></deaths-view>
+        <deaths-view :milliSecondsPassed="milliSecondsPassed"></deaths-view>
         <hr class="statistic-seperator">
-        <births-view></births-view>
+        <births-view :milliSecondsPassed="milliSecondsPassed"></births-view>
         <hr class="statistic-seperator">
         <garbage-view></garbage-view>
         <hr class="statistic-seperator">
@@ -65,11 +65,6 @@ export default {
     components: {
         DeathsView, BirthsView, GarbageView, WaterBottleUseView, TreeView, OilView, CharityView
     },
-    watch: {
-        now() {
-            console.log('a half second passed!');
-        }
-    },
     computed: {
         formatedSeonds() {
             return moment.utc(this.now * 1000).format('HH:mm:ss');
@@ -81,26 +76,17 @@ export default {
     created() {
         this.startedAt = moment();
         window.setInterval(() => {
-            let timePassed = moment() - this.startedAt;
+            const timePassed = moment() - this.startedAt;
             let secondsPassed = Math.floor(timePassed / 1000);
             this.now = secondsPassed;
-
-            let milliSecondsPassed = timePassed / 100;
-            this.deaths = 0.1783 * milliSecondsPassed;
-            console.log(this.deaths);
-        }, 100);
-        window.setInterval(() => {
-            // this.deaths += 1.783 / 10;
-            this.starvationDeaths += 0.3 / 10;
+            this.milliSecondsPassed = timePassed / 100;
         }, 100);
     },
     data() {
         return {
             startedAt: 0,
             now: 0,
-            births: 0,
-            deaths: 0,
-            starvationDeaths: 0
+            milliSecondsPassed: 0
         };
     }
 };
