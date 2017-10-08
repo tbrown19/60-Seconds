@@ -2,14 +2,12 @@
     <md-layout md-column md-flex>
         <md-layout md-column md-align="center">
             <span class="md-title">
-                {{charityCount}} dollars has been donated to charity.
+                ${{charityCount}} dollars has been donated to charity.
             </span>
             <span class="md-subheading">
                 Each $ represents ${{ valuePerIcon }}.
             </span>
-             <span class="md-subheading">
-                We can make the world a better place.
-            </span>
+            <a href="https://www.charitywatch.org/toprated">Find worthy charities.</a>
         </md-layout>
 
         <br>
@@ -19,7 +17,7 @@
                 <md-icon md-iconset="fa"></md-icon>
             </span>
             <span v-for="charity in charityIconsCount" :key="charity">
-                <md-icon md-iconset="fa fa-money"></md-icon>
+                <md-icon md-iconset="fa fa-usd" class="green-money"></md-icon>
             </span>
             <span v-if="charityIconsCount >= 1000" class="md-title">
                 + {{ Math.floor((charityCount - 1000) / this.valuePerIcon) }} more
@@ -49,11 +47,15 @@ export default {
     data() {
         return {
             charity: 0,
-            valuePerIcon: 100000
+            valuePerIcon: 10000
         };
     }
 };
 </script>
 
 <style scoped>
+.green-money {
+    margin-top: 2px;
+    color: rgb(0, 177, 106);
+}
 </style>

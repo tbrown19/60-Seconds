@@ -18,7 +18,7 @@
                 <md-icon md-iconset="fa"></md-icon>
             </span>
             <span v-for="waterBottle in waterBottleIconsCount" :key="waterBottle">
-                <md-icon class="md-primary" v-if="waterBottle < 1000">local_drink</md-icon>
+                <md-icon class="blue-bottle" v-if="waterBottle < 1000">local_drink</md-icon>
             </span>
             <span v-if="waterBottleIconsCount >= 1000" class="md-title">
                 + {{ Math.floor((waterBottleCount - 1000) / this.valuePerIcon) }} more
@@ -55,5 +55,7 @@ export default {
 </script>
 
 <style scoped>
-
+    .blue-bottle{
+        color: rgb(34, 167, 240);
+    }
 </style>

@@ -29,6 +29,12 @@
         <oil-view></oil-view>
         <hr class="statistic-seperator">
         <charity-view></charity-view>
+        <br>
+        <hr id="seperator">
+        <span class="md-subheading">
+            <em>"For every minute you remain angry, you give up sixty seconds of peace of mind."</em> 
+            — Ralph Waldo Emerson
+        </span>
         <!-- <md-layout md-column md-flex>
                     <md-layout md-align="center">
                         <span class="md-title">
