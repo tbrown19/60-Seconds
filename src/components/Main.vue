@@ -16,7 +16,7 @@
 
         <hr id="seperator">
 
-        <deaths-view></deaths-view>
+        <deaths-view :deaths="deaths" :starvationDeaths="starvationDeaths"></deaths-view>
         <hr class="statistic-seperator">
         <births-view></births-view>
         <hr class="statistic-seperator">
@@ -60,9 +60,15 @@ import TreeView from './events/Trees.vue';
 import OilView from './events/Oil.vue';
 import CharityView from './events/Charity.vue';
 const moment = require('moment');
+// require('hacktimer');
 export default {
     components: {
         DeathsView, BirthsView, GarbageView, WaterBottleUseView, TreeView, OilView, CharityView
+    },
+    watch: {
+        now() {
+            console.log('a half second passed!');
+        }
     },
     computed: {
         formatedSeonds() {
@@ -73,17 +79,28 @@ export default {
         }
     },
     created() {
+        this.startedAt = moment();
         window.setInterval(() => {
-            this.now += 1;
-        }, 1000);
+            let timePassed = moment() - this.startedAt;
+            let secondsPassed = Math.floor(timePassed / 1000);
+            this.now = secondsPassed;
+
+            let milliSecondsPassed = timePassed / 100;
+            this.deaths = 0.1783 * milliSecondsPassed;
+            console.log(this.deaths);
+        }, 100);
         window.setInterval(() => {
-            this.births += 4.16;
-        }, 1000);
+            // this.deaths += 1.783 / 10;
+            this.starvationDeaths += 0.3 / 10;
+        }, 100);
     },
     data() {
         return {
+            startedAt: 0,
             now: 0,
-            births: 0
+            births: 0,
+            deaths: 0,
+            starvationDeaths: 0
         };
     }
 };

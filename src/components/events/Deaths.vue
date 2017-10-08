@@ -4,11 +4,11 @@
             <span class="md-title">
                 {{deathsCount}} deaths have occured.
             </span>
-            <span class="md-title md-warn">
-                <span class="orange"> {{starvationDeathsCount}} </span>because of starvation.
+            <span class="md-title">
+                {{starvationDeathsCount}} because of starvation.
             </span>
             <span class="md-subheading">
-                Orange represents a death due to starvation.
+                Red represents a death due to starvation.
             </span>
             <a target="_blank" href="https://www.riseagainsthunger.org/">Help end world hunger.</a>
         </md-layout>
@@ -17,7 +17,7 @@
 
         <md-layout md-align="start">
                 <span v-for="death in deathsArray" :key="death">
-                    <md-icon v-if="death == 'red'" md-iconset="fa fa-user" class="md-warn"></md-icon>
+                    <md-icon v-if="death == 'red'" md-iconset="fa fa-user" class="red-person"></md-icon>
                     <md-icon v-else md-iconset="fa fa-user"></md-icon>
                 </span>
             <span v-if="deaths > 1000" class="md-title">
@@ -29,6 +29,7 @@
 
 <script>
 export default {
+    props: ['deaths', 'starvationDeaths'],
     computed: {
         deathsCount() {
             return Math.floor(this.deaths);
@@ -49,16 +50,16 @@ export default {
             }
         }
     },
-    created() {
-        window.setInterval(() => {
-            this.deaths += 1.783 / 10;
-            this.starvationDeaths += 0.3 / 10;
-        }, 100);
-    },
+    // created() {
+    //     window.setInterval(() => {
+    //         this.deaths += 1.783 / 10;
+    //         this.starvationDeaths += 0.3 / 10;
+    //     }, 100);
+    // },
     data() {
         return {
-            deaths: 0,
-            starvationDeaths: 0,
+            // deaths: 0,
+            // starvationDeaths: 0,
             deathsArray: []
         };
     }
@@ -66,4 +67,7 @@ export default {
 </script>
 
 <style scoped>
+.red-person{
+    color: red;
+}
 </style>

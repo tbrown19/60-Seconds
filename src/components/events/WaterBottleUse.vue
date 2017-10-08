@@ -56,6 +56,6 @@ export default {
 
 <style scoped>
     .blue-bottle{
-        color: rgb(34, 167, 240);
+        color: rgb(25, 181, 254);
     }
 </style>

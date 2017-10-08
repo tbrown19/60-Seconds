@@ -7,6 +7,9 @@
             <span class="md-subheading">
                 Each $ represents ${{ valuePerIcon }}.
             </span>
+            <span class="md-subheading">
+                You can help make a difference.
+            </span>
             <a href="https://www.charitywatch.org/toprated">Find worthy charities.</a>
         </md-layout>
 

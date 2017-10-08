@@ -20,7 +20,7 @@
             <span v-for="oil in oilIconsCount" :key="oil">
                 <md-icon md-iconset="fa fa-tint" class="black-oil"></md-icon>
             </span>
-            <span v-if="oilIconsCount >= 1000" class="md-title">
+            <span v-if="oilIconsCount >= 10" class="md-title">
                 + {{ Math.floor((oilCount - 1000) / this.valuePerIcon) }} more
             </span>
         </md-layout>
@@ -34,8 +34,8 @@ export default {
             return Math.floor(this.oil);
         },
         oilIconsCount() {
-            if (this.oil / this.valuePerIcon > 1000) {
-                return 1000;
+            if (this.oil / this.valuePerIcon > 10) {
+                return 10;
             }
             return Math.floor(this.oil / this.valuePerIcon);
         }

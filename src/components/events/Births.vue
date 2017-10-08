@@ -8,7 +8,7 @@
                 <span class="orange"> {{povertyBirthsCount}} </span> were born into poverty.
             </span>
             <span class="md-subheading">
-                Blue represents a child born into poverty.
+                Orange represents a child born into poverty.
             </span>
             <a target="_blank" href="http://endpoverty.org/">Help end poverty.</a>
         </md-layout>
@@ -16,10 +16,10 @@
         <br>
 
         <md-layout md-align="start">
-                <span v-for="birth in birthsArray" :key="birth">
-                    <md-icon v-if="birth == 'red'" md-iconset="fa fa-user" class="blue"></md-icon>
-                    <md-icon v-else md-iconset="fa fa-user"></md-icon>
-                </span>
+            <span v-for="birth in birthsArray" :key="birth">
+                <md-icon v-if="birth == 'red'" md-iconset="fa fa-user" class="orange-person"></md-icon>
+                <md-icon v-else md-iconset="fa fa-user"></md-icon>
+            </span>
             <span v-if="births > 1000" class="md-title">
                 + {{ birthsCount - 1000 }} more
             </span>
@@ -51,9 +51,9 @@ export default {
     },
     created() {
         window.setInterval(() => {
-            this.births += 4.16 / 100;
-            this.povertyBirths += 1.88 / 100;
-        }, 10);
+            this.births += 4.16 / 1;
+            this.povertyBirths += 1.88 / 1;
+        }, 1000);
     },
     data() {
         return {
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-    .blue{
-        color: rgb(52, 152, 219);
-    }
+.orange-person {
+    color: rgb(249, 105, 14);
+}
 </style>
