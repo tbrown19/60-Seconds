@@ -29,6 +29,7 @@
 
 <script>
 export default {
+    props: ['milliSecondsPassed'],
     computed: {
         waterBottleCount() {
             return Math.floor(this.waterBottle);
@@ -42,7 +43,7 @@ export default {
     },
     created() {
         window.setInterval(() => {
-            this.waterBottle += 1500 / 10;
+            this.waterBottle = 15 * this.milliSecondsPassed;
         }, 100);
     },
     data() {

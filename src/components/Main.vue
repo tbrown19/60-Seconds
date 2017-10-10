@@ -20,15 +20,15 @@
         <hr class="statistic-seperator">
         <births-view :milliSecondsPassed="milliSecondsPassed"></births-view>
         <hr class="statistic-seperator">
-        <garbage-view></garbage-view>
+        <garbage-view :milliSecondsPassed="milliSecondsPassed"></garbage-view>
         <hr class="statistic-seperator">
-        <water-bottle-use-view></water-bottle-use-view>
+        <water-bottle-use-view :milliSecondsPassed="milliSecondsPassed"></water-bottle-use-view>
         <hr class="statistic-seperator">
-        <tree-view></tree-view>
+        <tree-view :milliSecondsPassed="milliSecondsPassed"></tree-view>
         <hr class="statistic-seperator">
-        <oil-view></oil-view>
+        <oil-view :milliSecondsPassed="milliSecondsPassed"></oil-view>
         <hr class="statistic-seperator">
-        <charity-view></charity-view>
+        <charity-view :milliSecondsPassed="milliSecondsPassed"></charity-view>
         <br>
         <hr id="seperator">
         <span class="md-subheading">
@@ -79,7 +79,7 @@ export default {
             const timePassed = moment() - this.startedAt;
             let secondsPassed = Math.floor(timePassed / 1000);
             this.now = secondsPassed;
-            this.milliSecondsPassed = timePassed / 100;
+            this.milliSecondsPassed = timePassed / 10;
         }, 100);
     },
     data() {

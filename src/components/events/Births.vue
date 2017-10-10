@@ -52,8 +52,8 @@ export default {
     },
     created() {
         window.setInterval(() => {
-            this.births = 0.416 * this.milliSecondsPassed;
-            this.povertyBirths = 0.188 * this.milliSecondsPassed;
+            this.births = 0.0416 * this.milliSecondsPassed;
+            this.povertyBirths = 0.0188 * this.milliSecondsPassed;
         }, 100);
     },
     data() {

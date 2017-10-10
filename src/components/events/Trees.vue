@@ -29,6 +29,7 @@
 
 <script>
 export default {
+    props: ['milliSecondsPassed'],
     computed: {
         treeCount() {
             return Math.floor(this.tree);
@@ -42,7 +43,7 @@ export default {
     },
     created() {
         window.setInterval(() => {
-            this.tree += 34 / 10;
+            this.tree = 0.34 * this.milliSecondsPassed;
         }, 100);
     },
     data() {

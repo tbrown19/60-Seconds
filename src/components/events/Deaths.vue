@@ -52,8 +52,8 @@ export default {
     },
     created() {
         window.setInterval(() => {
-            this.deaths = 0.1783 * this.milliSecondsPassed;
-            this.starvationDeaths = 0.03 * this.milliSecondsPassed;
+            this.deaths = 0.01783 * this.milliSecondsPassed;
+            this.starvationDeaths = 0.003 * this.milliSecondsPassed;
         }, 100);
     },
     data() {

@@ -29,6 +29,7 @@
 
 <script>
 export default {
+    props: ['milliSecondsPassed'],
     computed: {
         tonsTrashCount() {
             return Math.floor(this.tonsTrash);
@@ -42,7 +43,7 @@ export default {
     },
     created() {
         window.setInterval(() => {
-            this.tonsTrash += 41.667 / 10;
+            this.tonsTrash = 0.41667 * this.milliSecondsPassed;
         }, 100);
     },
     data() {

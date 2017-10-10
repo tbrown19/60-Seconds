@@ -31,6 +31,7 @@
 
 <script>
 export default {
+    props: ['milliSecondsPassed'],
     computed: {
         charityCount() {
             return Math.floor(this.charity);
@@ -44,7 +45,7 @@ export default {
     },
     created() {
         window.setInterval(() => {
-            this.charity += 52286.45 / 10;
+            this.charity = 522.8645 * this.milliSecondsPassed;
         }, 100);
     },
     data() {
