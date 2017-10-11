@@ -36,7 +36,7 @@ export default {
         },
         oilIconsCount() {
             if (this.oil / this.valuePerIcon > 1000) {
-                return 10;
+                return 1000;
             }
             return Math.floor(this.oil / this.valuePerIcon);
         }
