@@ -5,7 +5,7 @@
                 {{birthsCount}} children have been born.
             </span>
             <span class="md-title md-warn">
-                <span class="orange"> {{povertyBirthsCount}} </span> were born into poverty.
+                {{povertyBirthsCount}} were born into poverty.
             </span>
             <span class="md-subheading">
                 Orange represents a child born into poverty.
@@ -41,11 +41,12 @@ export default {
     watch: {
         births(newValue, old) {
             // only display up to 1000 items,
-            if (newValue < 1000) {
+            if (this.deathsArray.length < 1000) {
                 const newBirths = Math.floor(newValue) - Math.floor(old);
                 for (let i = 0; i < newBirths; i++) {
                     const color = Math.random() < 0.52 ? 'red' : 'black';
                     this.birthsArray.push(color);
+                    console.log(this.birthsArray.length);
                 }
             }
         }

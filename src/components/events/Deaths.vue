@@ -16,10 +16,12 @@
         <br>
 
         <md-layout md-align="start">
-                <span v-for="death in deathsArray" :key="death">
-                    <md-icon v-if="death == 'red'" md-iconset="fa fa-user" class="red-person"></md-icon>
-                    <md-icon v-else md-iconset="fa fa-user"></md-icon>
-                </span>
+            <span v-for="death in deathsArray" :key="death">
+                <md-icon v-if="death == 'red'" md-iconset="fa fa-user" class="red-person">
+
+                </md-icon>
+                <md-icon v-else md-iconset="fa fa-user"></md-icon>
+            </span>
             <span v-if="deaths > 1000" class="md-title">
                 + {{ deathsCount - 1000 }} more
             </span>
@@ -36,12 +38,15 @@ export default {
         },
         starvationDeathsCount() {
             return Math.floor(this.starvationDeaths);
+        },
+        totalIcons() {
+            return this.deathsArray.length;
         }
     },
     watch: {
         deaths(newValue, old) {
             // only display up to 1000 items,
-            if (newValue < 1000) {
+            if (this.deathsArray.length < 1000) {
                 const newDeaths = Math.floor(newValue) - Math.floor(old);
                 for (let i = 0; i < newDeaths; i++) {
                     const color = Math.random() < 0.16 ? 'red' : 'black';
@@ -52,8 +57,8 @@ export default {
     },
     created() {
         window.setInterval(() => {
-            this.deaths = 0.01783 * this.milliSecondsPassed;
-            this.starvationDeaths = 0.003 * this.milliSecondsPassed;
+            this.deaths = 0.1783 * this.milliSecondsPassed;
+            this.starvationDeaths = 0.03 * this.milliSecondsPassed;
         }, 100);
     },
     data() {
